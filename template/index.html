@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Rating Prediction Appication</title>
+    <link rel="stylesheet" href="/static/style1.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="icon" href={{url_for('static',filename = "star.png")}}>
+  </head>
+  <body>
+
+    <section>
+      <input type="checkbox" id="check">
+      <header>
+        </div>
+        <h2><a href="/predict" class="logo">Restaurant Rating Predictor</a></h2>
+        <h2><a href="/predict">Predictor</a></h2>
+        <div class="navigation">
+          
+          <a href="#">Home</a>
+          <a href="#about">About Rating Predictor App</a>
+          <a href="#info">Developer</a>
+          
+        </div>
+        <label for="check">
+        <i class="fas fa-bars menu-btn"></i>
+        <i class="fas fa-times close-btn"></i>
+        </label>
+      </header>
+      
+      <div class="media-icons">
+        <a href="https://www.linkedin.com/in/mohamed-illiyas/"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/illiyas-sha"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/data.science.hub"><i class="fab fa-instagram"></i></a>
+        <a style="color:rgb(214, 236, 11)"   href="/predict"><b>Predictor</b> <i class= "fas fa-pizza-slice"></i></a>
+        
+      </div>
+
+
+    </section>
+
+    <section id="about">
+      <h2>About Restaurant Rating Predictor</h2>
+      <p class="about-content" style="text-align: center;">Restaurant Rating Predictor is a web app which has 
+      a Machine Learning model running at the back. The purpose of developing this app is to 
+      predict the approximate ratings of a restaurant. This model is based on the "Zomato Restaurant Banglore Data". The codes for this project is in my 
+      <a href="https://github.com/illiyas-sha/" style="color: black; font-weight: bold;">Github repo</a>. 
+      This predictor application works perfectly for Banglore Restaurants. It can be scaled and extended to 
+      all other locations of India. This predictor application uses ML model. We have used Ensemble model for 
+      this prediction.Extremely Randomized Trees (EXTRA Trees) is used for this prediction. 
+      Extremely Randomized Trees uses the whole original sample instead of bootstrap replica(random sampling with replacement). 
+      It will reduce bias. Choosing randomly the split point reduces the variance. 
+      Computaion time for Extra trees is much faster than the Random Forest Regressor. 
+      It is faster because Extra trees randomly chooses the split point and does not calculate the optimal split like Random forest .
+      This predicts the rating 93% accurately.
+      </p>
+      <h3><center>THIS PREDICTOR WORS ONLY FOR BANGLORE . IT CAN BE SCALED AND EXTENDED TO OTHER LOCATIONS IN FUTURE</center></h3>
+    </section>
+
+    
+    
+    <section id="info">
+      <div>
+        <img src="../static/illiyas-bg.jpg" alt="Illiyas" style="background-position: center;">
+      </div>
+      <div>
+        <h2>Developer</h2>
+        <p class="about-content"> Hi, I'm Mohamed Illiyas, a Data Science Enthusiast 🚀 from India. 
+          Currently, I am pursuing my Bachelor of Engineering (B.E) in Computer Science from the
+           Government College of Engineering, Srirangam (ANNA UNIVERSITY AFFILIATED) - Tamil Nadu.  
+           These days, I'm learning ML, DL, NLP  & Statistics
+           At present, doing some self - paced projects in data science like Weather predictor App, 
+           Breast Cancer Prediction Application, etc.. 
+          Always curious to learn something new in the field of Data Science. 
+           Happy to have new connections.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Developed with ❤️ by Mohamed Illiyas
+      </p> 
+      <div class="media-icons">
+        <a href="https://www.linkedin.com/in/mohamed-illiyas/"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/illiyas-sha"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/illiyas_sha"><i class="fab fa-instagram"></i></a>
+      </div>
+    </footer>
+
+  </body>
+</html>

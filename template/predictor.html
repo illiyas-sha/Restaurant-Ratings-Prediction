@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href={{url_for('static',filename='predictor.css')}}>
+    <link rel="icon" href={{url_for('static',filename = "star.png")}}>
+    <title>Restaurant Rating Prediction</title>
+</head>
+<body>
+    <!-- ( This Predictor works only for Banglore. It can be scaled and extended to other Places in future)  -->
+    <section id="prediction-form">
+        <form class="form" action="/predict", method="POST">
+            <h1 class="my-3 text-center">Rating Predictor - How much Rating Your Restaurant Deserve?</h1>
+            <div class="row">
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="location" class="location" name="location"><b> Location</b> </label>
+                        <select class="location" id="location" name="location" aria-label="Location">
+                            <option selected>Select Location</option>
+                            <option value= "Banashankari">Banashankari</option>
+                            <option value= "Basavanagudi">Basavanagudi</option>
+                            <option value= "Others">Others</option>
+                            <option value= "Jayanagar">Jayanagar</option>
+                            <option value= "Kumaraswamy Layout">Kumaraswamy Layout</option>
+                            <option value= "JP Nagar">JP Nagar</option>
+                            <option value= "South Bangalore">South Bangalore</option>
+                            <option value= "City Market">City Market</option>
+                            <option value= "Bannerghatta Road">Bannerghatta Road</option>
+                            <option value= "BTM">BTM</option>
+                            <option value= "Bommanahalli">Bommanahalli</option>
+                            <option value= "Electronic City">Electronic City</option>
+                            <option value= "HSR">HSR</option>
+                            <option value= "Marathahalli">Marathahalli</option>
+                            <option value= "Wilson Garden">Wilson Garden</option>
+                            <option value= "Shanti Nagar">Shanti Nagar</option>
+                            <option value= "Koramangala 5th Block">Koramangala 5th Block</option>
+                            <option value= "Koramangala 8th Block">Koramangala 8th Block</option>
+                            <option value= "Richmond Road">Richmond Road</option>
+                            <option value= "Koramangala 7th Block">Koramangala 7th Block</option>
+                            <option value= "Koramangala 4th Block">Koramangala 4th Block</option>
+                            <option value= "Bellandur">Bellandur</option>
+                            <option value= "Sarjapur Road">Sarjapur Road</option>
+                            <option value= "Whitefield">Whitefield	</option>
+                            <option value= "Old Airport Road">Old Airport Road</option>
+                            <option value= "Indiranagar">Indiranagar</option>
+                            <option value= "Koramangala 1st Block">Koramangala 1st Block</option>
+                            <option value= "Frazer Town">Frazer Town</option>
+                            <option value= "MG Road">MG Road</option>
+                            <option value= "Brigade Road">Brigade Road</option>
+                            <option value= "Lavelle Road">Lavelle Road</option>
+                            <option value= "Church Street">Church Street</option>
+                            <option value= "Ulsoor">Ulsoor</option>
+                            <option value= "Residency Road">Residency Road</option>
+                            <option value= "Shivajinagar">Shivajinagar</option>
+                            <option value= "Infantry Road">Infantry Road</option>
+                            <option value= "St. Marks Road">St. Marks Road</option>
+                            <option value= "Cunningham Road">Cunningham Road</option>
+                            <option value= "Race Course Road">Race Course Road</option>
+                            <option value= "Commercial Street">Commercial Street</option>
+                            <option value= "Vasanth Nagar">Vasanth Nagar</option>
+                            <option value= "HBR Layout">HBR Layout</option>
+                            <option value= "Domlur">Domlur</option>
+                            <option value= "Ejipura">Ejipura</option>
+                            <option value= "Jeevan Bhima Nagar">Jeevan Bhima Nagar</option>
+                            <option value= "Malleshwaram">Malleshwaram</option>
+                            <option value= "Seshadripuram">Seshadripuram</option>
+                            <option value= "Kammanahalli">Kammanahalli</option>
+                            <option value= "Koramangala 6th Block">Koramangala 6th Block</option>
+                            <option value= "Majestic">Majestic</option> 
+                            <option value= "Brookefield">Brookefield</option>
+                            <option value= "ITPL Main Road, Whitefield">ITPL Main Road, Whitefield</option>
+                            <option value= "Varthur Main Road, Whitefield">Varthur Main Road, Whitefield</option>
+                            <option value= "Koramangala 2nd Block">Koramangala 2nd Block</option>
+                            <option value= "Koramangala 3rd Block">Koramangala 3rd Block</option>
+                            <option value= "Hosur Road">Hosur Road</option>
+                            <option value= "Rajajinagar">Rajajinagar</option>
+                            <option value= "Banaswadi">Banaswadi</option>
+                            <option value= "Nagawara">Nagawara</option>
+                            <option value= "Hennur">Hennur</option>
+                            <option value= "Kalyan Nagar">Kalyan Nagar</option>
+                            <option value= "New BEL Road">New BEL Road</option>
+                            <option value= "Thippasandra">Thippasandra</option>
+                            <option value= "Kaggadasapura">Kaggadasapura</option>
+                            <option value= "Basaveshwara Nagar">Basaveshwara Nagar</option>
+                            <option value= "Yeshwantpur">Yeshwantpur</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="city" class="city" name="city"><b>City</b></label>
+                        <select class="city" id="city" name="city" aria-label="city">
+                            <option selected>Select City</option>
+                            <option value="Banashankari">Banashankari</option>
+                            <option value= "Basavanagudi">Basavanagudi</option>
+                            <option value= "Bannerghatta Road">Bannerghatta Road</option>
+                            <option value= "Bellandur">Bellandur</option>
+                            <option value= "Brigade Road">Brigade Road</option>
+                            <option value= "Brookefield">Brookefield</option>
+                            <option value= "BTM">BTM</option>
+                            <option value= "Church Street">Church Street</option>
+                            <option value= "Electronic City">Electronic City</option>
+                            <option value= "Frazer Town">Frazer Town</option>
+                            <option value= "HSR">HSR</option>
+                            <option value= "Indiranagar">Indiranagar</option>
+                            <option value= "Jayanagar">Jayanagar</option>
+                            <option value= "JP Nagar">JP Nagar</option>
+                            <option value= "Kalyan Nagar">Kalyan Nagar</option>
+                            <option value= "Kammanahalli">Kammanahalli</option>
+                            <option value= "Koramangala 4th Block">Koramangala 4th Block</option>
+                            <option value= "Koramangala 5th Block">Koramangala 5th Block</option>
+                            <option value= "Koramangala 6th Block">Koramangala 6th Block</option>
+                            <option value= "Koramangala 7th Block">Koramangala 7th Block</option>
+                            <option value= "Lavelle Road">Lavelle Road</option>
+                            <option value= "Malleshwaram">Malleshwaram</option>
+                            <option value= "Marathahalli">Marathahalli</option>
+                            <option value= "MG Road">MG Road</option>
+                            <option value= "New BEL Road">New BEL Road</option>
+                            <option value= "Old Airport Road">Old Airport Road</option>
+                            <option value= "Rajajinagar">Rajajinagar</option>
+                            <option value= "Residency Road">Residency Road</option>
+                            <option value= "Sarjapur Road">Sarjapur Road</option>
+                            <option value= "Whitefield">Whitefield	</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="onlineorder" class="onlineorder" name="onlineorder"><b> Ordering Facility</b><br>Does this Restaurant have Online Ordering Facility?</label>
+                        <select class="onlineorder" id="onlineorder" name="onlineorder" aria-label="Online Order">
+                            <option selected>Select Yes or No</option>
+                            <option value= "Yes">Yes</option>
+                            <option value= "No">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="booktable" class="booktable" name="booktable"><b> Booking Facility On Premises</b><br>Does this Restaurant have Table Booking Facility?</label>
+                        <select class="booktable" id="booktable" name="booktable" aria-label="Book Table">
+                            <option selected>Select Yes or No</option>
+                            <option value= "Yes">Yes</option>
+                            <option value= "No">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="restaurantype" class="restaurantype" name="restaurantype"><b>Restaurant type</b></label>
+                        <select class="restaurantype" id="restaurantype" name="restaurantype" aria-label="Restaurant Type">
+                            
+                            <option selected>Select Type of Restaurant</option>
+                            <option value= "Quick Bites">Quick Bites</option>
+                            <option value="Casual Dining">Casual Dining</option>
+                            <option value="Others">Others</option>
+                            <option value="Cafe">Cafe</option>
+                            <option value="Delivery">Delivery</option>
+                            <option value="Dessert Parlor">Dessert Parlor</option>
+                            <option value="Takeaway, Delivery">Takeaway, Delivery</option>
+                            <option value="Casual Dining, Bar">Casual Dining, Bar</option>
+                            <option value="Bakery">Bakery</option>
+                            <option value="Beverage Shop">Beverage Shop</option>
+                            <option value="Bar">Bar</option>
+                            <option value="Food Court">Food Court</option>
+                            <option value="Sweet Shop">Sweet Shop</option>
+                            
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="cuisines" class="cuisines" name="cuisines"><b>Cuisines</b></label>
+                        <select class="cuisines" id="cuisines" name="cuisines" aria-label="Cuisines">
+                            <option selected>Select Cuisines</option>
+                          
+                            <option value= "North Indian, Mughlai, Chinese">North Indian, Mughlai, Chinese</option>
+                            <option value= "Others">Others</option>
+                            <option value= "South Indian, North Indian">South Indian, North Indian</option>
+                            <option value= "North Indian">North Indian</option>
+                            <option value= "Cafe">Cafe</option>
+                            <option value= "Cafe, Continental">Cafe, Continental</option>
+                            <option value= "Cafe, Fast Food">Cafe, Fast Food</option>
+                            <option value= "Cafe, Bakery">Cafe, Bakery</option>
+                            <option value= "Bakery, Desserts">Bakery, Desserts</option>
+                            <option value= "Pizza">Pizza</option>
+                            <option value= "Biryani">Biryani</option>
+                            <option value= "North Indian, Chinese, Fast Food">North Indian, Chinese, Fast Food</option>
+                            <option value= "Chinese, Thai, Momos">Chinese, Thai, Momos</option>
+                            <option value= "South Indian">South Indian</option>
+                            <option value= "Burger, Fast Food">Burger, Fast Food</option>
+                            <option value= "Pizza, Fast Food">Pizza, Fast Food</option>
+                            <option value= "North Indian, Chinese">North Indian, Chinese</option>
+                            <option value= "Chinese, Thai">Chinese, Thai</option>
+                            <option value= "Ice Cream, Desserts">Ice Cream, Desserts</option>
+                            <option value= "Biryani, Fast Food">Biryani, Fast Food</option>
+                            <option value= "Desserts, Beverages">Desserts, Beverages</option>
+                            <option value= "Chinese">Chinese</option>
+                            <option value= "Bakery">Bakery</option>
+                            <option value= "South Indian, Biryani">South Indian, Biryani</option>
+                            <option value= "Fast Food">Fast Food</option>
+                            <option value= "South Indian, North Indian, Chinese">South Indian, North Indian, Chinese</option>
+                            <option value= "Mithai, Street Food">Mithai, Street Food</option>
+                            <option value= "South Indian, Chinese">South Indian, Chinese</option>
+                            <option value= "North Indian, Chinese, Biryani">North Indian, Chinese, Biryani</option>
+                            <option value= "Desserts">Desserts</option>
+                            <option value= "Ice Cream">Ice Cream</option>
+                            <option value= "Beverages">Beverages</option>
+                            <option value= "Mithai">Mithai</option>
+                            <option value= "North Indian, Street Food">North Indian, Street Food</option>
+                            <option value= "South Indian, North Indian, Chinese, Street Food">South Indian, North Indian, Chinese, Street Food</option>
+                            <option value= "Andhra">Andhra</option>
+                            <option value= "Italian, Pizza">Italian, Pizza</option>
+                            <option value= "Street Food">Street Food</option>
+                            <option value= "Arabian">Arabian</option>
+                            <option value= "North Indian, Chinese, Continental">North Indian, Chinese, Continental</option>
+                            <option value= "Fast Food, Rolls">Fast Food, Rolls</option>
+                            <option value= "Beverages, Fast Food">Beverages, Fast Food</option>
+                            <option value= "South Indian, Fast Food">South Indian, Fast Food</option>
+                            <option value= "North Indian, Fast Food">North Indian, Fast Food</option>
+                            <option value= "North Indian, Continental">North Indian, Continental</option>
+                            <option value= "North Indian, Biryani">North Indian, Biryani</option>
+                            <option value= "Finger Food">Finger Food</option>
+                            <option value= "Continental">Continental</option>
+                            <option value= "Andhra, Biryani">Andhra, Biryani</option>
+                            <option value= "Biryani, Kebab">Biryani, Kebab</option>
+                            <option value= "North Indian, Mughlai">North Indian, Mughlai</option>
+                            <option value= "Cafe, Desserts">Cafe, Desserts</option>
+                            <option value= "Chinese, Momos">Chinese, Momo</option>
+                            <option value= "Kerala, South Indian">Kerala, South Indian</option>
+                            <option value= "Bakery, Fast Food">Bakery, Fast Food</option>
+                            <option value= "Kerala">Kerala</option>
+                            <option value= "North Indian, Chinese, Seafood">North Indian, Chinese, Seafood</option>
+                        </select>
+                    </div>
+                </div>
+<!--                 Meal Types
+                        Buffet
+                        Cafes
+                        Delivery
+                        Desserts
+                        Dine-out
+                        Drinks & nightlife
+                        Pubs and bars
+                   -->
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="mealtype" class="mealtype" name="mealtype"><b>Type of Meal</b></label>
+                        <select class="mealtype" id="mealtype" name="mealtype" aria-label="Book Table">
+                            <option selected>Select Type of Meal</option>
+                            <option value= "Buffet">Buffet</option>
+                            <option value= "Cafes">Cafes</option>
+                            <option value= "Delivery">Delivery</option>
+                            <option value= "Desserts">Desserts</option>
+                            <option value= "Dine-out">Dine-out</option>
+                            <option value= "Drinks & nightlife">Drinks & nightlife</option>
+                            <option value= "Pubs and bars">Pubs and bars</option>
+                        </select>
+                    </div>
+                </div>
+
+                
+            
+               
+                
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="votes" class="votes"><b>Votes</b> Number of votes & Example : 55</label>
+                        <input type="text" class="form-control" id="votes" name="votes">
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="costof2plates" class="costof2plates"><b>Cost For 2 Plates</b> - Cost For 2 Plates & Example : 500 </label>
+                        <input type="text" class="form-control" id="costof2plates" name="costof2plates">
+                    </div>
+                </div>
+                
+                <div class="col-md-6 my-2 d-flex align-items-end justify-content-around">
+                    <button type="submit" class="btn btn-info button" style="margin-right: 50%;">Predict</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    <div>
+         <h1><center> {{ prediction }} </center></h1>
+         <h1><center> {{ rounded_value }} </center></h1>
+    </div>
+        
+    <section id="info" display= flex; flex-direction= row; align-items= center; background-color=  #eee; min-height= 95vh;>
+        
+        <div>
+            <center>
+          <img src="../static/illiyas.jpeg" alt="Illiyas" align-items = center ;height= 290vh; width= 18%; border-radius= 80%;>
+        </center>
+        </div>
+        <div  display= flex; align-items= center; flex-direction= column; width= 50%;>
+            <h1>
+        
+            </h1>
+        
+          <h2 text-align= center; color= var(--primary-color); font-size= 50px > <center>Developer</center> </h2>
+          <p class="about-content"> Hi, I'm Mohamed Illiyas, a Data Science Enthusiast 🚀 from India. 
+            Currently, I am pursuing my Bachelor of Engineering (B.E) in Computer Science from the
+             Government College of Engineering, Srirangam (ANNA UNIVERSITY) - Tamil Nadu.  
+             These days, I'm learning ML, DL, NLP  & Statistics
+             At present, doing some projects in data science like Restaurant Rating Application , Weather predictor App, 
+             Breast Cancer Prediction Application, etc.. 
+            Always curious to learn something new in the field of Data Science. 
+        </div>
+      </section>
+  
+      <footer>
+        <p><center>
+          Developed with ❤️ by Mohamed Illiyas
+        </center>
+        </p> 
+        <div class="media-icons">
+          <a href="https://www.linkedin.com/in/mohamed-illiyas/"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/illiyas-sha"><i class="fab fa-github"></i></a>
+          <a href="https://instagram.com/illiyas_sha"><i class="fab fa-instagram"></i></a>
+        </div>
+      </footer>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>
