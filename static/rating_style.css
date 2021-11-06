@@ -1,0 +1,73 @@
+.container {
+  width: 400px;
+  background:linear-gradient(rgba(36, 209, 13, 0.918), rgba(8, 0, 0, 0.829)) ;
+  margin: 0 auto;
+  padding: 40px;
+  color: white;
+  font-family: "Open Sans";
+
+}
+/* #f54444 */
+.top-star {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  display: block;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  margin-top: 35px;
+}
+
+h1, h2, h3, p {
+  margin-bottom: 0;
+}
+
+span.stars, span.stars span {
+  display: block;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/747/star-o-white.svg) 0 0 repeat-x;
+  width: 200px;
+  /* width of a star multiplied by 5 */
+  height: 40px;
+  /* the height of the star */
+  background-size: 40px 40px;
+ 
+    /* margin-left: -49px; */
+}
+
+span.stars span {
+  background-position: 0 0;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/747/star.svg);
+}
+
+/* .background{
+  background-image: url(/static/bg3.jpg);
+ 
+  
+
+}*/
+.background::before {
+   content: '';
+  position: absolute;
+  /* height: 100%;*/ 
+  width: 97%; 
+  height: 100%;
+  
+    background-size: contain;
+    /* background-position: center;  */
+  /* top: 0;
+  left: 0;
+  bottom: 0; */
+  background-image: url(/static/siyuan-g_V2rt6iG7A-unsplash.jpg);
+  -webkit-filter: blur(8px);
+  filter: blur(7px);
+  z-index: -1;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+  /* slight overscale so blur reaches all edges */
+}
+
